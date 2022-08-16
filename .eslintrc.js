@@ -2,31 +2,49 @@ module.exports = {
   root: true,
   overrides: [
     {
-      files: ["*.ts", "*.tsx"],
-      processor: "@graphql-eslint/graphql",
-      parser: "@typescript-eslint/parser",
-      extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+      files: ['*.ts', '*.tsx'],
+      processor: '@graphql-eslint/graphql',
+      parser: '@typescript-eslint/parser',
+      extends: [
+        'eslint:recommended',
+        'plugin:react/recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:prettier/recommended',
+      ],
+      plugins: ['@typescript-eslint', 'react', 'prettier'],
       env: {
         es6: true,
       },
+      rules: {
+        'react/prop-types': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        'prettier/prettier': 2,
+        'react/jsx-curly-brace-presence': [
+          'error',
+          {
+            props: 'always',
+            children: 'ignore',
+          },
+        ],
+      },
     },
     {
-      files: ["*.graphql"],
-      parser: "@graphql-eslint/eslint-plugin",
-      plugins: ["@graphql-eslint"],
+      files: ['*.graphql'],
+      parser: '@graphql-eslint/eslint-plugin',
+      plugins: ['@graphql-eslint'],
       rules: {
-        "@graphql-eslint/no-anonymous-operations": "error",
-        "@graphql-eslint/naming-convention": [
-          "error",
+        '@graphql-eslint/no-anonymous-operations': 'error',
+        '@graphql-eslint/naming-convention': [
+          'error',
           {
             OperationDefinition: {
-              style: "PascalCase",
-              forbiddenPrefixes: ["Query", "Mutation", "Subscription", "Get"],
-              forbiddenSuffixes: ["Query", "Mutation", "Subscription"],
+              style: 'PascalCase',
+              forbiddenPrefixes: ['Query', 'Mutation', 'Subscription', 'Get'],
+              forbiddenSuffixes: ['Query', 'Mutation', 'Subscription'],
             },
           },
         ],
       },
     },
   ],
-};
+}
