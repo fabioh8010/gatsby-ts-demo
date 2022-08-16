@@ -7,18 +7,20 @@ module.exports = {
       parser: '@typescript-eslint/parser',
       extends: [
         'eslint:recommended',
+        'plugin:import/recommended',
+        'plugin:import/typescript',
         'plugin:react/recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:prettier/recommended',
       ],
-      plugins: ['@typescript-eslint', 'react', 'prettier'],
+      plugins: ['@typescript-eslint', 'react', 'prettier', 'import'],
       env: {
         es6: true,
       },
       rules: {
         'react/prop-types': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
-        'prettier/prettier': 2,
+        'prettier/prettier': 'error',
         'react/jsx-curly-brace-presence': [
           'error',
           {
@@ -26,6 +28,15 @@ module.exports = {
             children: 'ignore',
           },
         ],
+        'import/no-unresolved': 'error',
+      },
+      settings: {
+        'import/parsers': {
+          '@typescript-eslint/parser': ['.ts', '.tsx'],
+        },
+        'import/resolver': {
+          typescript: {},
+        },
       },
     },
     {
