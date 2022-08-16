@@ -1,4 +1,4 @@
-import { HeadFC, Link } from 'gatsby'
+import { Link } from 'gatsby'
 import * as React from 'react'
 
 const pageStyles = {
@@ -49,4 +49,4 @@ const NotFoundPage = () => {
 
 export default NotFoundPage
 
-export const Head: HeadFC = () => <title>Not found</title>
+export const Head = () => <title>Not found</title>

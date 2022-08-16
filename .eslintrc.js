@@ -29,6 +29,7 @@ module.exports = {
           },
         ],
         'import/no-unresolved': 'error',
+        '@typescript-eslint/no-non-null-assertion': 'off',
       },
       settings: {
         'import/parsers': {
